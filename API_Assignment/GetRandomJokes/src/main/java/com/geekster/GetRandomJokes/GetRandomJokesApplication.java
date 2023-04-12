@@ -30,7 +30,7 @@ public class GetRandomJokesApplication {
 
 			in.close();
 			JSONObject masterData = new JSONObject(jsonResponseData.toString());
-			System.out.println(masterData.toString());
+			System.out.println(masterData);
 
 		} else {
 			System.out.println("This is not valid URL- " + responseCode);
