@@ -1,21 +1,21 @@
 package com.geekster.Employee_Address.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table
 public class Address {
 
     @Id
@@ -34,6 +34,7 @@ public class Address {
     @Pattern(regexp = "[a-z][a-z]+")
     private String state;
 
-    @Size(min = 4,max = 8)
+    @Positive
     private Integer pinCode;
+
 }

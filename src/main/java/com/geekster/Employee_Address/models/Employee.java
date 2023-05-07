@@ -12,8 +12,10 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table
 public class Employee {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employee_id;
 
@@ -28,4 +30,5 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="address_id")
     private Address address;
+
 }

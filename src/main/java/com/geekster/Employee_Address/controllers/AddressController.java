@@ -1,7 +1,9 @@
 package com.geekster.Employee_Address.controllers;
 
 import com.geekster.Employee_Address.models.Address;
+import com.geekster.Employee_Address.services.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,12 +17,12 @@ public class AddressController {
     AddressService addressService;
 
     @GetMapping
-    public List<Address> getAllAddress(){
+    public ResponseEntity<List<Address>> getAllAddress(){
         return addressService.getAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Address getAddress(@PathVariable int id){
+    public ResponseEntity<Address> getAddress(@PathVariable int id){
         return addressService.getAddress(id);
     }
 
